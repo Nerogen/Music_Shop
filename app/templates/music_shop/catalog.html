@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+        }
+        .filters {
+            width: 200px;
+            background-color: #fff;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .products {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-card {
+            width: calc(25% - 20px);
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 100%;
+            margin-top: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-title {
+            margin: 0;
+            font-size: 18px;
+        }
+        .product-price {
+            margin: 5px 0;
+            color: #333;
+            font-weight: bold;
+        }
+        .filters label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .filters input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .filters input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .filters input[type="submit"]:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Music Shop - Products</h1>
+    </header>
+    <div class="container">
+        <div class="filters">
+            <h2>Filters</h2>
+            <form action="#" method="get">
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color">
+
+                <label for="neck">Neck Type:</label>
+                <input type="text" id="neck" name="neck">
+
+                <label for="body">Body:</label>
+                <input type="text" id="body" name="body">
+
+                <label for="min-price">Min Price:</label>
+                <input type="text" id="min-price" name="min-price">
+
+                <label for="max-price">Max Price:</label>
+                <input type="text" id="max-price" name="max-price">
+
+                <input type="submit" value="Apply Filters">
+            </form>
+        </div>
+        <div class="products">
+            {% for key, value in data.items %}
+                <div class="product-card">
+                    <img src="{{ value.picture }}" alt="Product 1">
+                    <div class="product-info">
+                        <h3 class="product-title">{{ key }}</h3>
+                        <p class="product-price">${{ value.cost }}</p>
+<!--                        <h3>{{ value.info }}</h3>-->
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- Add more product cards as needed -->
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        form input[type="text"] {
+            width: calc(100% - 110px);
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Music Shop</h1>
+    </header>
+    <nav>
+        <a href="#">Category 1</a>
+        <a href="#">Category 2</a>
+        <a href="#">Category 3</a>
+        <a href="#">Category 4</a>
+        <a href="#">Category 5</a>
+        <a href="#">Category 6</a>
+        <a href="#">Category 7</a>
+        <a href="#">Category 8</a>
+    </nav>
+    <div class="container">
+        <form action="#" method="get">
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}
