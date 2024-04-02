@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import re_path as url
+from music_shop.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("music_shop.urls"))
+    path("", ProductCardView.as_view(), name="card view")
 ]

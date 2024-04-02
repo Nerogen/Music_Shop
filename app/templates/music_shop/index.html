@@ -58,6 +58,37 @@
         form input[type="submit"]:hover {
             background-color: #444;
         }
+        .products {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-card {
+            width: calc(25% - 20px);
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 100%;
+            margin-top: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-title {
+            margin: 0;
+            font-size: 18px;
+        }
+        .product-price {
+            margin: 5px 0;
+            color: #333;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +111,19 @@
             <input type="submit" value="Search">
         </form>
     </div>
+    <div class="products">
+        {% for key, value in data.items %}
+            <div class="product-card">
+                <img src="{{ value.picture }}" alt="Product 1">
+                <div class="product-info">
+                    <h3 class="product-title">{{ key }}</h3>
+                    <p class="product-price">${{ value.cost }}</p>
+<!--                        <h3>{{ value.info }}</h3>-->
+                </div>
+            </div>
+        {% endfor %}
+        <!-- Add more product cards as needed -->
+        </div>
 </body>
 
 
